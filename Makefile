@@ -30,7 +30,7 @@ install: all
 	chmod 755 ${DESTDIR}${PREFIX}/bin/vsleep
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	cp -fv vsleep.1 ${DESTDIR}${MANPREFIX}/man1/
-	chmod 644 ${DESTDIR}${MANPREFIX}/man1/vlseep.1
+	chmod 644 ${DESTDIR}${MANPREFIX}/man1/vsleep.1
 
 
 uninstall:
