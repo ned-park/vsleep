@@ -26,6 +26,7 @@ void print_remaining_time(int s) {
 
 int main(int argc, char** argv) {
     double seconds = 0;
+    int useconds = 0;
 
     if (argc < 2) {
         print_usage(argv);
@@ -63,6 +64,11 @@ int main(int argc, char** argv) {
         if (!conversion_factor) conversion_factor = 1;
         seconds += num * conversion_factor; 
     }
+        
+    int whole_seconds = (int)(seconds);
+    useconds = (int)((seconds - whole_seconds) * 1000000);
+    seconds = whole_seconds;
+    usleep(useconds);
 
     while (seconds > 0) {
         printf("\33[2K\r");
