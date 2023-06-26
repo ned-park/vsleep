@@ -1,0 +1,53 @@
+.TH VSLEEP 1 vsleep
+.SH NAME
+vsleep \- verbose sleep
+.SH SYNOPSIS
+.B vsleep
+.RB <num>[unit] ...
+.SH Description
+
+vsleep is a replacement for the sleep command that provides a countdown of the
+approximate time remaining before the program completes.  This makes it
+especially useful as a timer where the alarm, if one is desired is provided by
+chaining another to run afterwards like with regular sleep except that the time
+remaining is displayed.  
+
+.SH OPTIONS
+
+.B s
+Pause for some number of seconds (default if no unit is provided)
+
+.B m
+Pause for some number of minutes
+
+.B h
+Pause for some number of hours
+
+.B d
+Pause for some number of days
+
+.SH Usage
+vsleep accepts one or more numbers followed by a suffix of s, m, h, d for
+seconds, minutes, hours, and days respectively.  If no suffix is provided, the
+number is assumed to be in seconds.  If more than one number is provided then
+vsleep adds the times together whether they are fractional units or whole.  
+
+vlseep <num>[unit]
+
+.SH Examples
+While vsleep can be useful in its own right as a timer, it can also be chained
+with other commands to run on completion as with sleep.  
+
+vsleep 60s && mpc play
+
+To lock the screen after 5 minutes
+vsleep 5m && slock
+
+.SH Exit Codes
+0 Success
+
+1 Invalid arguments
+
+.SH Report Bugs
+Bug reports can be created at https://github.com/ned-park/vsleep
+
